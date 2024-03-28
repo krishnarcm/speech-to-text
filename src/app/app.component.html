@@ -1,0 +1,42 @@
+<!-- <input type="text" [(ngModel)]="message" placeholder="Enter text to speak">
+<button (click)="speak()">Speak</button> -->
+
+<!-- <router-outlet></router-outlet> -->
+
+<div class="ct-wrapper">
+    <div style="width:420px">
+        <h1>VocalizeHub by Genisys</h1>
+        <p style="margin-top: -23px;">Speak and Listen with Ease...</p>
+    </div>
+
+</div>
+<div class="chat-wrapper">
+
+    <div class="text-area">
+        <h4>How can i help you ?</h4>
+
+        <div class="finalSpeech">
+            <div *ngFor="let x of finalSpeech">
+                <div [class.bot]="x.type">
+                    <b *ngIf="!x.type">You: </b>
+                    <i class="fa-solid fa-robot" *ngIf="x.type"></i>
+                    <span [innerHTML]="x.text"></span>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="listen">
+        <span style="color:grey;">{{speechText}}</span>
+
+        <a href="javascript:void(0)" *ngIf="!isCallActive" (click)="startCall()"><i
+                class="fa-solid fa-microphone"></i></a>
+        <a href="javascript:void(0)" *ngIf="isCallActive" (click)="stopCall()"><i
+                class="fa-solid fa-microphone-slash"></i></a>
+    </div>
+
+</div>
